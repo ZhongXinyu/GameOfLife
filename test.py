@@ -37,4 +37,12 @@ def test_init_cell():
     assert cell.status == 1
     assert cell.next_status == 1
 
+def test_init_cell_invalid():
+    with pytest.raises(ValueError) as exc_info:
+        cell = Cell(100)
+    # Check the exception message
+    expected_message = "Invalid status, please pass in 0 or 1"
+    assert str(exc_info.value) == expected_message
+
+
 
